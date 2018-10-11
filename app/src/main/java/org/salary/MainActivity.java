@@ -1,5 +1,6 @@
 package org.salary;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,11 +10,18 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // initialize fresco
+        Fresco.initialize(this);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -26,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //cricel image
+        Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/master/docs/static/logo.png");
+        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view2);
+        draweeView.setImageURI(uri);
+        draweeView =  findViewById(R.id.my_image_view1);
+        draweeView.setImageResource(R.drawable.xuan);
+        //demo 2
+        int color = getResources().getColor(R.color.red);
+        RoundingParams roundingParams = RoundingParams.fromCornersRadius(5f);
+        roundingParams.setBorder(color, 1.0f);
+        roundingParams.setRoundAsCircle(true);
+        SimpleDraweeView mSimpleDraweeView = (SimpleDraweeView) findViewById(R.id.my_image_view3);
+        mSimpleDraweeView.getHierarchy().setRoundingParams(roundingParams);
+
     }
 
     @Override
