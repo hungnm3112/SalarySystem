@@ -1,0 +1,11 @@
+CREATE TABLE 
+IF NOT EXISTS User(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT,
+  codeId TEXT,
+  image BLOB
+);
+INSERT INTO User(name,codeId,image) VALUES('hung','hmd0301991','01101010101');
+UPDATE User SET name = 'Hao', codeId = 'HMD01233423' WHERE id = 2;
+DELETE FROM USER WHERE id = 3;
+SELECT * FROM User;
