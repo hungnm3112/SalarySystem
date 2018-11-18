@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         //create adapter demo for list user
         List<User> data = new ArrayList<>();
-        data.add(new User("Quách Thị Xuân","HM1240545",R.drawable.xuan));
-        data.add(new User("Gia Long","HM415543",R.drawable.hoa));
-        data.add(new User("Đoàn Dương Vang Hà","HM741258",R.drawable.van));
-        data.add(new User("Nguyễn Phương Chi","HM982456",R.drawable.thuy));
+        data.add(new User(-1, "Quách Thị Xuân","HM1240545",R.drawable.xuan));
+        data.add(new User(-2, "Gia Long","HM415543",R.drawable.hoa));
+        data.add(new User(-3, "Đoàn Dương Vang Hà","HM741258",R.drawable.van));
+        data.add(new User(-4, "Nguyễn Phương Chi","HM982456",R.drawable.thuy));
         ListUserAdapter adapter = new ListUserAdapter(data);
         //create layoutManager
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
