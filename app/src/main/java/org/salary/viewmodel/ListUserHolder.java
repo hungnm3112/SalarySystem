@@ -1,4 +1,4 @@
-package org.salary.model.viewmodel;
+package org.salary.viewmodel;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
