@@ -1,5 +1,6 @@
 package org.salary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import org.salary.model.entity.User;
+import org.salary.view.EmptyActivity;
 import org.salary.viewmodel.ListUserAdapter;
 
 import java.util.ArrayList;
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView listUserRV = findViewById(R.id.listUserRv);
         listUserRV.setLayoutManager(layoutManager);
         listUserRV.setAdapter(adapter);
+        Intent intent = new Intent(this,EmptyActivity.class);
+        startActivity(intent);
     }
 
     @Override
