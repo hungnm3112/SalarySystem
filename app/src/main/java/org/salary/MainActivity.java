@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
+import org.salary.model.database.UserDAO;
 import org.salary.model.entity.User;
 import org.salary.view.EmptyActivity;
 import org.salary.viewmodel.ListUserAdapter;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
+/*
         //create adapter demo for list user
         List<User> data = new ArrayList<>();
         data.add(new User(-1, "Quách Thị Xuân","HM1240545",R.drawable.xuan));
@@ -55,9 +56,16 @@ public class MainActivity extends AppCompatActivity {
         //add adapter to RecycleView
         RecyclerView listUserRV = findViewById(R.id.listUserRv);
         listUserRV.setLayoutManager(layoutManager);
-        listUserRV.setAdapter(adapter);
-        Intent intent = new Intent(this,EmptyActivity.class);
-        startActivity(intent);
+        listUserRV.setAdapter(adapter);*/
+
+        // check list user null go to empty activity
+        UserDAO userDAO = new UserDAO(this);
+        List<User> listUser = userDAO.getAll();
+        if(listUser.size()<1){
+            Intent intent = new Intent(this,EmptyActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override
